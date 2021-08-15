@@ -1,16 +1,16 @@
 import React from 'react';
 // import * as S from './styles';
 
-function LoginBtn() {
+function StartBtn() {
 
   return (
     <>
-      <div className="login-btn">
-        로그인
+      <div className="start-btn">
+        시작하기
       </div>
 
     </>
   );
 }
 
-export default LoginBtn;
+export default StartBtn;

@@ -5,9 +5,9 @@ function WelcomeMent() {
 
   return (
     <>
-     <div className="welcome-ment">
-            오 안녕하세요? <br></br>반갑습니다!
-          </div>
+      <div className="welcome-ment">
+        오 안녕? <br></br>반가워!
+      </div>
 
     </>
   );

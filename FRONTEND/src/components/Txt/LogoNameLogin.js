@@ -3,12 +3,12 @@ import React from 'react';
 
 function LogoNameLogin() {
 
-  return (
-    <>
-     <div className="logo-name">로그인</div>
+    return (
+        <>
+            <div className="logo-name">로그인</div>
 
-    </>
-  );
+        </>
+    );
 }
 
 export default LogoNameLogin;

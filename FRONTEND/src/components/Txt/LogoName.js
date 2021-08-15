@@ -3,12 +3,12 @@ import React from 'react';
 
 function LogoName() {
 
-  return (
-    <>
-     <div className="logo-name">파피메일</div>
+    return (
+        <>
+            <div className="logo-name">파피메일</div>
 
-    </>
-  );
+        </>
+    );
 }
 
 export default LogoName;

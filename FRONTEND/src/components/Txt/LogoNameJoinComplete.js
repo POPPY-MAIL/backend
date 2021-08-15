@@ -5,7 +5,7 @@ function LogoNameJoin() {
 
     return (
         <>
-            <div className="logo-name">회원가입</div>
+            <div className="logo-name">회원가입 완료</div>
 
         </>
     );

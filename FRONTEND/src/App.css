@@ -63,49 +63,58 @@
   align-items: center;
 }
 
-/* sidebar */
-
-.navbar{
-  background-color: transparent;
-  height: 80px;
-  display: flex;
-  justify-items: center;
-  align-items: center;
+.fullbox {
+  position: relative;
+  background-color: #fff;
+  width: 25rem;
+  height: calc(45.78177727784027rem + 0.1124859392575928rem + 60px);
+  overflow: hidden;
 }
 
-.menu-bars{
-  background-color: #111;
+/* sidebar */
+
+.menu-bars {
+  background-image: url(./image/burger.png);
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
-width: 23px;
-height: 18px;
-left: 365.5px;
-top: 60px;
-z-index: 500;
-cursor: pointer;
+  width: 1.35rem;
+  height: 1.26rem;
+  right: 2rem;
+  top: 1.7rem;
+  cursor: pointer;
+}
+
+.menu-bars svg {
+  opacity: 1;
 }
 
 .nav-menu {
   background: #424355;
+  /* opacity: 0; */
   width: 19.8125rem;
-  height:100vh;
-  display:flex;
-  position:fixed;
-  top:0;
-  right:calc(50% - 12.5rem - 19.8125rem);
-  transition: 850ms;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: calc(50% - 12.5rem - 19.8125rem);
+  transition: 350ms;
   z-index: 2;
 }
 
 .nav-menu.active {
   right: calc(50% - 12.5rem);
+  opacity: 1;
   transition: 350ms;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  /* box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px; */
 }
-.nav-text{
+.nav-text {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
-  list-style:none;
+  padding: 0 0 0.5rem 0;
+  list-style: none;
   height: 60px;
 }
 .nav-text a {
@@ -116,18 +125,18 @@ cursor: pointer;
   height: 100%;
   display: flex;
   align-items: center;
-  padding:0 16px;
+  padding: 0 16px;
   border-radius: 4px;
 }
-.nav-text a:hover{
+.nav-text a:hover {
   /* background-color: #fff; */
 }
 .nav-menu-items {
-  width:100%;
+  width: 100%;
 }
 .navbar-toggle {
   background-color: #424355;
-  width:100%;
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: flex-start;
@@ -135,13 +144,12 @@ cursor: pointer;
 }
 .nav-text span {
   font-family: "Cafe24 Ssurround";
-font-style: normal;
-font-weight: bold;
-font-size: 16px;
-line-height: 24px;
-
-
-  margin-left:16px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 1.5rem;
+  letter-spacing: -0.5px;
 }
 
 /* welcome-scene */
@@ -151,29 +159,29 @@ line-height: 24px;
   width: 25rem;
   height: 100%;
   /* height: 56rem; */
-  position: absolute;
 }
 
 .back-btn img {
   position: absolute;
-  width: 3.25rem;
-  height: 1.9625rem;
-  left: 1rem;
-  top: 1.3rem;
+  width: 3.824521934758155rem;
+  height: 2.305961754780652rem;
+  left: 0.8998875140607424rem;
+  top: 2.81214848143982rem;
   cursor: pointer;
 }
 
+
 .logo-name {
   position: absolute;
-  width: 4rem;
+  width: 10rem;
   height: 1.1875rem;
-  left: calc(50% - 2rem);
-  top: 1.875rem;
+  left: calc(50% - 5rem);
+  top: 3.487064116985377rem;
 
   font-family: Apple SD Gothic Neo;
   font-style: normal;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.8998875140607424rem;
   line-height: 1.1875rem;
   text-align: center;
 
@@ -184,10 +192,10 @@ line-height: 24px;
 
 .poppy img {
   position: absolute;
-  width: 20.7rem;
-  height: 20.7rem;
-  left: calc(50% - 10.35rem);
-  top: 6.875rem;
+  width: 16.19797525309336rem;
+  height: 17.43532058492688rem;
+  left: calc(50% - 8.098987626546682rem);
+  top: 11.58605174353206rem;
 }
 
 .welcome-ment {
@@ -195,12 +203,12 @@ line-height: 24px;
   width: 8.25rem;
   height: 3.75rem;
   left: calc(50% - 4.12rem);
-  top: 28.063rem;
+  top: 30.87739032620922rem;
 
   /* font-family: Cafe24 Ssurround air;
 font-style: normal;
 font-weight: normal; */
-  /* font-size: 20px; */
+  font-size: 1.124859392575928rem;
   line-height: 1.5rem;
   text-align: center;
 
@@ -210,13 +218,13 @@ font-weight: normal; */
 .login-btn {
   font-family: "Roboto bold";
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.012373453318335rem;
 
   position: absolute;
-  width: 22.375rem;
-  height: 3.5rem;
-  left: calc(50% - 11.1875rem);
-  top: 34.6875rem;
+  width: 20.13498312710911rem;
+  height: 3.374578177727784rem;
+  left: calc(50% - 10.06749156355456rem);
+  top: 38.18897637795276rem;
 
   /* indego */
 
@@ -224,30 +232,51 @@ font-weight: normal; */
   border-radius: 30px;
   color: #fff;
   text-align: center;
-  line-height: 3.5rem;
+  line-height: 3.374578177727784rem;
+  cursor: pointer;
+}
+
+.start-btn {
+  font-family: "Roboto bold";
+  font-weight: bold;
+  font-size: 1.012373453318335rem;
+
+  position: absolute;
+  width: 20.13498312710911rem;
+  height: 3.374578177727784rem;
+  left: calc(50% - 10.06749156355456rem);
+  top: 42.51968503937008rem;
+
+  /* indego */
+
+  background: #424355;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 3.374578177727784rem;
   cursor: pointer;
 }
 
 .join-btn {
   font-family: "Roboto bold";
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.012373453318335rem;
 
-  color: #424355;
   position: absolute;
-  width: 22.375rem;
-  height: 3.5rem;
-  left: calc(50% - 11.1875rem);
-  top: 39rem;
+  width: 20.13498312710911rem;
+  height: 3.374578177727784rem;
+  left: calc(50% - 10.06749156355456rem);
+  top: 42.51968503937008rem;
 
   background: #ffffff;
+  color: #424355;
   /* indego */
 
   border: 2px solid #424355;
   box-sizing: border-box;
   border-radius: 30px;
   text-align: center;
-  line-height: 3.5rem;
+  line-height: 3.374578177727784rem;
   cursor: pointer;
 }
 
@@ -257,64 +286,115 @@ background: #4243554D;
 
 .join-btn-deco1 {
   position: absolute;
-  width: 0.4375rem;
-  height: 0.125rem;
-  left: 20.875rem;
-  top: 39rem;
+  width: 0.3937007874015748rem;
+  height: 0.1124859392575928rem;
+  left: 4.21822272215973rem;
+  top: 45.78177727784027rem;
 
   background: #ffffff;
 }
 
 .join-btn-deco2 {
   position: absolute;
-  width: 0.4375rem;
-  height: 0.125rem;
-  left: 4.6875rem;
-  top: 42.4rem;
+  width: 0.3937007874015748rem;
+  height: 0.1124859392575928rem;
+  left: 18.785151856018rem;
+  top: 42.51968503937008rem;
 
   background: #ffffff;
+}
+
+.with-kakao {
+  position: absolute;
+  width: 9.955005624296963rem;
+  height: 1.40607424071991rem;
+  left: calc(50% - 4.977502812148481rem);
+  top: 22.83464566929134rem;
+
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.40607424071991rem;
+}
+
+.KakaobtnImg {
+  width: 10.85489313835771rem;
 }
 
 /* Join */
 .join-ment-big {
   position: absolute;
-width: 7.6875rem;
-height: 2.4375rem;
-left: 2.375rem;
-top: 8.5625rem;
+  width: 10rem;
+  height: 2.4375rem;
+  left: 2.137232845894263rem;
+  top: 7.705286839145107rem;
 
-/* title */
+  /* title */
 
-font-family: "Cafe24 Ssurround";
-font-style: normal;
-font-weight: bold;
-font-size: 1.5rem;
-line-height: 2.4375rem;
-/* identical to box height */
+  font-family: "Cafe24 Ssurround";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.687289088863892rem;
+  line-height: 2.19347581552306rem;
+  letter-spacing: -1.6px;
+  /* identical to box height */
 
+  /* indego */
 
-/* indego */
-
-color: #424355;
+  color: #424355;
 }
 
 .join-ment-small {
   position: absolute;
-width: 17.375rem;
-height: 1.5625rem;
-left: 2.375rem;
-top: 11.5rem;
+  width: 17.375rem;
+  height: 1.5625rem;
+  left: 2.137232845894263rem;
+  top: 10.34870641169854rem;
 
-/* text */
+  /* text */
 
-font-style: normal;
-font-weight: normal;
-font-size: 0.89rem;
-/* font-size: 18px; */
-line-height: 1.5625rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.012373453318335rem;
+  /* font-size: 18px; */
+  line-height: 1.40607424071991rem;
 
-/* indego */
+  /* indego */
 
-color: #424355;
+  color: #424355;
+}
 
+.join-complete-img {
+  position: absolute;
+  width: 4.330708661417323rem;
+  height: 3.880764904386952rem;
+  left: 1.912260967379078rem;
+  top: 14.45444319460067rem;
+}
+
+.join-complete-ment-big {
+  position: absolute;
+  width: 10.17997750281215rem;
+  height: 1.968503937007874rem;
+  left: 2.137232845894263rem;
+  top: 20.3037120359955rem;
+
+  font-family: "Cafe24 Ssurround";
+  font-size: 1.687289088863892rem;
+  line-height: 1.968503937007874rem;
+
+  color: #424355;
+}
+
+.join-complete-ment-small {
+  position: absolute;
+  width: 17.82902137232846rem;
+  height: 2.643419572553431rem;
+  left: 2.137232845894263rem;
+  top: 23.3970753655793rem;
+
+  font-family: "Cafe24 Ssurround air";
+  font-size: 1.012373453318335rem;
+  line-height: 1.181102362204724rem;
+
+  color: #424355;
 }

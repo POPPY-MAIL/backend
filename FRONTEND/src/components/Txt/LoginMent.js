@@ -1,19 +1,19 @@
 import React from 'react';
 // import * as S from './styles';
 
-function JoinMent() {
+function LoginMent() {
 
     return (
         <>
             <div className="join-ment-big">
-                반가워요!
+                안녕하세요!
             </div>
             <div className="join-ment-small">
-                우체통을 만들기 위해 가입해주세요.
+                로그인해주세요.
             </div>
 
         </>
     );
 }
 
-export default JoinMent;
+export default LoginMent;
