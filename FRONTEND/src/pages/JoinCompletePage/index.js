@@ -19,7 +19,10 @@ function JoinCompletePage() {
 
                 <JoinCompleteMent></JoinCompleteMent>
 
-                <StartBtn></StartBtn>
+                <Link to="/howto">
+                    <StartBtn></StartBtn>
+                </Link>
+                
 
             </S.JoinCompleteScene>
 

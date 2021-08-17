@@ -3,6 +3,6 @@ import styled from 'styled-components';
 export const WelcomeScene = styled.div`
 background-color: #fff;
 width: 25rem;
-height: 100%;
+height: calc(45.78177727784027rem + 0.1124859392575928rem + 60px);
 position: absolute;
 `;

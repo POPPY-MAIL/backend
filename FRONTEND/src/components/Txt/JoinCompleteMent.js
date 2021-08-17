@@ -9,7 +9,7 @@ function JoinMent() {
                 회원가입 완료
             </div>
             <div className="join-complete-ment-small">
-                파피메일 가입이 완료되었습니다. <br></br> 우체통을 만들어 친구들에게 뿌려보세요!
+                파피메일 가입이 완료되었습니다. <br></br> 우편함 링크를 만들어 <br></br> 친구들에게 편지를 받아보세요!
             </div>
 
         </>

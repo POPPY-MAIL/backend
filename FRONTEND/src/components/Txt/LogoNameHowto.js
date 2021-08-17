@@ -5,7 +5,7 @@ function LogoNameHowto() {
 
     return (
         <>
-            <div className="logo-name">파피메일 이용하는 방법</div>
+            <div className="logo-name">서비스 스토리</div>
 
         </>
     );
