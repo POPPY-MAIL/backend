@@ -16,26 +16,44 @@ export const UserContext = createContext({
 
 function JoinInfoPage() {
 
+    const history = useHistory()
+
     const [nickname, setNickname] = useState("");
     const [birthdate, setBirthdate] = useState("");
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("남자");
     const [phone, setPhone] = useState("");
     const value = useMemo(() => ({ setNickname, setBirthdate, setGender, setPhone }), [setNickname, setBirthdate, setGender, setPhone]);
 
     const JoinRequest = () => {
-        console.log(nickname + birthdate + gender + phone);
-        // fetch('http://158.247.195.25/mailbox/', {
+        if (nickname==="" || birthdate==="" || gender==="" || phone===""){
+            alert("필수 입력 요소가 작성되지 않았습니다 ... 알림창 만드러야댐");
+        }
+        else {
+            alert(nickname + birthdate + gender + phone);
+            history.push("/joincomplete");
+        }
+        // fetch('http://158.247.195.25/sign_in/', {
         //     method: "POST",
         //     headers: {
-        //         'name' : nickname,
-        //         'birthdate' : birthdate,
-        //         'gender' : gender,
-        //         'phone' : phone,
+                
         //     },
         //     body: JSON.stringify({
-        //         // access_token: authObj.access_token,
+        //         'name': nickname,
+        //         'birthdate': birthdate,
+        //         'gender': gender,
+        //         'phone': phone,
         //     }),
         // })
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         // localStorage.setItem("Kakao_token", res.access_token);
+        //         // const kakao_token = localStorage.getItem("Kakao_token");
+        //         if (res) {
+        //             console.log(res);
+        //             // alert(res.user_name + "님, poppy mail에 오신 것을 환영합니다!");
+        //             // history.push("/joininfo");
+        //         }
+        //     })
     };
 
     return (
