@@ -3,6 +3,12 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,pycharm
 .DS_Store
 
+# 가상환경
+venv/
+.idea/
+# secret key 보호
+.env/
+
 ### Django ###
 *.log
 *.pot
