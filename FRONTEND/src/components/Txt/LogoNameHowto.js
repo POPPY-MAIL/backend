@@ -5,7 +5,7 @@ function LogoNameHowto() {
 
     return (
         <>
-            <div className="logo-name">서비스 스토리</div>
+            <div className="logo-name">파피의 이야기</div>
 
         </>
     );

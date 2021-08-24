@@ -18,9 +18,7 @@ function KakaoPlus() {
         <>
             <S.KakaoPlusScene>
                 <div className="fullbox">
-                    <Link to="/">
                         <BackBtn></BackBtn>
-                    </Link>
                     <Navbar></Navbar>
 
                     <LogoNameKakaoPlus></LogoNameKakaoPlus>
@@ -29,7 +27,10 @@ function KakaoPlus() {
 
                     <KakaoPlusImg></KakaoPlusImg>
 
-                    <GoHomeBtn></GoHomeBtn>
+                    <Link to="/howto">
+                        <GoHomeBtn></GoHomeBtn>
+                    </Link>
+                    
                     
 
                 </div>

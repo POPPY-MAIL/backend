@@ -18,9 +18,7 @@ function ReceivedLetterPage() {
         <>
             <S.ReceivedLetterScene>
                 <div className="fullbox-dark">
-                    <Link to="/">
                         <BackBtn></BackBtn>
-                    </Link>
                     <Navbar></Navbar>
 
                     <LogoNameReceivedLetter></LogoNameReceivedLetter>

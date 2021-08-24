@@ -11,6 +11,7 @@ import CreatePostBoxPage2 from './pages/CreatePostBoxPage2';
 import CreatePostBoxPage3 from './pages/CreatePostBoxPage3';
 import KakaoPlusPage from './pages/KakaoPlusPage';
 import ReceivedLetterPage from './pages/ReceivedLetterPage';
+import JoinInfoPage from './pages/JoinInfoPage';
 
 import './App.css';
 
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/" component={WelcomePage} />
             <Route exact path="/login" component={LogInPage} />
             <Route exact path="/join" component={JoinPage} />
+            <Route exact path="/joininfo" component={JoinInfoPage} />
             <Route exact path="/joincomplete" component={JoinCompletePage} />
             <Route exact path="/howto" component={HowToPage} />
             <Route exact path="/createpostboxstepone" component={CreatePostBoxPage1} />
@@ -35,7 +37,7 @@ function App() {
             <Route exact path="/createpostboxstepthree" component={CreatePostBoxPage3} />
             <Route exact path="/kakaoplus" component={KakaoPlusPage} />
             <Route exact path="/mypage" component={ReceivedLetterPage} />
-
+            
           </Switch>
         </div>
       </div>

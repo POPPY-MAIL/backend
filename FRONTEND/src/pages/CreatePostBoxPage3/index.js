@@ -9,6 +9,7 @@ import LinkName from '../../components/Txt/LinkName';
 import GoHomeBtn from '../../components/Btn/GoHomeBtn';
 import AlertCopy from '../../components/Alert/AlertCopy';
 import PostboxAfter from '../../components/Img/PostboxAfter';
+import CompleteBtn from '../../components/Btn/CompleteBtn';
 
 
 function CreatePostBoxPage3() {
@@ -19,9 +20,7 @@ function CreatePostBoxPage3() {
         <>
             <S.CreatePostBoxScene>
                 <div className="fullbox">
-                    <Link to="/">
                         <BackBtn></BackBtn>
-                    </Link>
                     <Navbar></Navbar>
 
                     <LogoNameCreatePostBox></LogoNameCreatePostBox>
@@ -31,6 +30,11 @@ function CreatePostBoxPage3() {
                     <PostboxAfter></PostboxAfter>
 
                     <LinkName></LinkName>
+
+                    <Link to="/kakaoplus">
+                        <CompleteBtn></CompleteBtn>
+                    </Link>
+                    
                     
 
                 </div>

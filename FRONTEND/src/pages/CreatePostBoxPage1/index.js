@@ -7,6 +7,7 @@ import LogoNameCreatePostBox from '../../components/Txt/LogoNameCreatePostBox';
 import BackBtn from '../../components/Btn/BackBtn';
 import CompleteBtn from '../../components/Btn/CompleteBtn';
 import InputName from '../../components/InputName'
+import AlertNickname from '../../components/Alert/AlertNickname';
 
 
 function CreatePostBoxPage1() {
@@ -17,14 +18,14 @@ function CreatePostBoxPage1() {
         <>
             <S.CreatePostBoxScene>
                 <div className="fullbox">
-                    <Link to="/">
                         <BackBtn></BackBtn>
-                    </Link>
                     <Navbar></Navbar>
 
                     <LogoNameCreatePostBox></LogoNameCreatePostBox>
 
                     <InputName></InputName>
+
+                    <AlertNickname></AlertNickname>
 
                     <Link to="/createpostboxsteptwo">
                         <CompleteBtn></CompleteBtn>

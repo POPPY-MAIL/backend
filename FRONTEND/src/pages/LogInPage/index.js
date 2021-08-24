@@ -42,6 +42,7 @@ function LogInPage() {
         Kakao.Auth.login({
             success: function (response) {
                 console.log(response);
+                history.push("/howto");
             },
             fail: function(error) {
                 alert(JSON.stringify(error))
@@ -52,9 +53,7 @@ function LogInPage() {
     return (
         <>
             <S.LogInScene>
-                <Link to="/">
                     <BackBtn></BackBtn>
-                </Link>
 
                 <LogoNameLogin></LogoNameLogin>
                 <LoginMent></LoginMent>

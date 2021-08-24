@@ -20,9 +20,7 @@ function CreatePostBoxPage2() {
         <>
             <S.CreatePostBoxScene>
                 <div className="fullbox">
-                    <Link to="/">
                         <BackBtn></BackBtn>
-                    </Link>
                     <Navbar></Navbar>
 
                     <LogoNameCreatePostBox></LogoNameCreatePostBox>
