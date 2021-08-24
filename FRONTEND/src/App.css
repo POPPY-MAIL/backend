@@ -1084,7 +1084,7 @@ background: #4243554D;
   line-height: 25px;
 }
 
-.joininput-name textarea {
+.joininput-name input {
   position: absolute;
   width: 20rem;
   height: 3.48rem;
@@ -1098,7 +1098,7 @@ background: #4243554D;
   padding-left: 0.7rem;
 }
 
-.joininput-name textarea::placeholder {
+.joininput-name input::placeholder {
   color: #A9A9A9;
   font-size: 0.78rem;
   font-family: 'Roboto';
@@ -1114,7 +1114,7 @@ background: #4243554D;
   line-height: 25px;
 }
 
-.joininput-birth textarea {
+.joininput-birth input {
   position: absolute;
   width: 20rem;
   height: 3.48rem;
@@ -1128,7 +1128,7 @@ background: #4243554D;
   padding-left: 0.7rem;
 }
 
-.joininput-birth textarea::placeholder {
+.joininput-birth input::placeholder {
   color: #A9A9A9;
   font-size: 0.78rem;
   font-family: 'Roboto';
@@ -1200,6 +1200,12 @@ button#dropdown-basic-button {
   right: 1.5rem;
 }
 
+.dropdown-toggle::after {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+}
+
 .dropdown-menu {
   width: 20rem;
 }
@@ -1214,7 +1220,7 @@ button#dropdown-basic-button {
   line-height: 25px;
 }
 
-.joininput-phone textarea {
+.joininput-phone input {
   position: absolute;
   width: 20rem;
   height: 3.48rem;
@@ -1228,7 +1234,7 @@ button#dropdown-basic-button {
   padding-left: 0.7rem;
 }
 
-.joininput-phone textarea::placeholder {
+.joininput-phone input::placeholder {
   color: #A9A9A9;
   font-size: 0.78rem;
   font-family: 'Roboto';
