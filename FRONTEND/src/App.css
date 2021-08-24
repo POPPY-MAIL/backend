@@ -1240,3 +1240,62 @@ button#dropdown-basic-button {
   font-size: 0.78rem;
   font-family: 'Roboto';
 }
+
+.post-link-title-box {
+  position: absolute;
+  width: 21.53rem;
+  height: 6.12rem;
+  left: calc(50% - 10.765rem);
+  top: 6.53rem;
+
+  background: #4B4362;
+  border-radius: 10px;
+}
+
+.post-link-title-small {
+  margin-top: 1.65rem;
+  text-align: center;
+  color: #fff;
+
+  line-height: 24px;
+  font-size: 0.9rem;
+}
+
+.post-link-title-big {
+  margin-top: 0.412rem;
+  text-align: center;
+  color: #fff;
+
+  font-family: "Cafe24 Ssurround";
+  line-height: 24px;
+  font-size: 0.9rem;
+}
+
+.lets-write-mail-ment-big {
+  position: absolute;
+  width: 100%;
+  top: 14.53rem;
+  text-align: center;
+  line-height: 28px;
+  color: #000;
+}
+
+.lets-write-mail-ment-small {
+  position: absolute;
+  width: 100%;
+  top: 42.53rem;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 24px;
+  color: #989898;
+  cursor: pointer;
+}
+
+.lets-write-mail-img img{
+  position: absolute;
+  width: 17.53rem;
+  height: 18rem;
+  left: calc(50% - 8.765rem);
+  top: 21.89rem;
+}
+

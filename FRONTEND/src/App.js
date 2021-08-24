@@ -12,6 +12,7 @@ import CreatePostBoxPage3 from './pages/CreatePostBoxPage3';
 import KakaoPlusPage from './pages/KakaoPlusPage';
 import ReceivedLetterPage from './pages/ReceivedLetterPage';
 import JoinInfoPage from './pages/JoinInfoPage';
+import LetsWriteMailPage from  './pages/LetsWriteMailPage';
 
 import './App.css';
 
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/createpostboxstepthree" component={CreatePostBoxPage3} />
             <Route exact path="/kakaoplus" component={KakaoPlusPage} />
             <Route exact path="/mypage" component={ReceivedLetterPage} />
+            <Route exact path="/letswritemail" component={LetsWriteMailPage} />
             
           </Switch>
         </div>
