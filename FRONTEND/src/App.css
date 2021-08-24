@@ -210,6 +210,7 @@
   justify-content: flex-start;
   align-items: center;
   z-index: 2;
+  cursor: pointer;
 }
 .nav-text span {
   font-family: "Cafe24 Ssurround";

@@ -5,14 +5,14 @@ import {DropdownButton, Dropdown} from 'react-bootstrap';
 
 function JoinInput() {
 
-    // const [nickname, setNickname] = useState("");
+    // const [name, setName] = useState("");
     // const [birthdate, setBirthdate] = useState("");
     // const [gender, setGender] = useState("");
     // const [phone, setPhone] = useState("");
-    const { setNickname, setBirthdate, setGender, setPhone } = useContext(UserContext);
+    const { setName, setBirthdate, setGender, setPhone } = useContext(UserContext);
 
-    const processNickname = e => {
-        setNickname(e.target.value);
+    const processName = e => {
+        setName(e.target.value);
     };
 
     const processBirthdate = e => {
@@ -36,7 +36,7 @@ function JoinInput() {
             <div className="joininput-name">
                 <div className="input-title">
                     이름 </div>
-                <input className="input-name" placeholder="김파피" onChange={processNickname}></input>
+                <input className="input-name" placeholder="김파피" onChange={processName}></input>
             </div>
 
             <div className="joininput-birth">

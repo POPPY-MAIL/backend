@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { createContext, useState, useMemo } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import * as S from './styles';
 import Navbar from '../../components/Navbar';
@@ -9,16 +9,56 @@ import CompleteBtn from '../../components/Btn/CompleteBtn';
 import InputName from '../../components/InputName'
 import AlertNickname from '../../components/Alert/AlertNickname';
 
+export const CreatepostboxContext = createContext({
+    setNickname: () => { },
+})
 
 function CreatePostBoxPage1() {
+
+    const history = useHistory()
+
+    const [nickname, setNickname] = useState("");
+    const value = useMemo(() => ({ setNickname }), [setNickname]);
+
+    const CreatepostboxRequest = () => {
+        if (nickname===""){
+            alert("필수 입력 요소가 작성되지 않았습니다 ... 알림창 만드러야댐");
+        }
+        else {
+            alert(nickname);
+            history.push("/createpostboxsteptwo");
+        }
+        // fetch('http://158.247.195.25/sign_in/', {
+        //     method: "POST",
+        //     headers: {
+                
+        //     },
+        //     body: JSON.stringify({
+        //         'name': name,
+        //         'birthdate': birthdate,
+        //         'gender': gender,
+        //         'phone': phone,
+        //     }),
+        // })
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         // localStorage.setItem("Kakao_token", res.access_token);
+        //         // const kakao_token = localStorage.getItem("Kakao_token");
+        //         if (res) {
+        //             console.log(res);
+        //             // alert(res.user_name + "님, poppy mail에 오신 것을 환영합니다!");
+        //             // history.push("/joininfo");
+        //         }
+        //     })
+    };
 
     //   if (loading) return <LoadingScreen />;
     //   if (error) return <div>에러가 발생했습니다.</div>;
     return (
-        <>
+        <CreatepostboxContext.Provider value={value}>
             <S.CreatePostBoxScene>
                 <div className="fullbox">
-                        <BackBtn></BackBtn>
+                    <BackBtn></BackBtn>
                     <Navbar></Navbar>
 
                     <LogoNameCreatePostBox></LogoNameCreatePostBox>
@@ -27,14 +67,14 @@ function CreatePostBoxPage1() {
 
                     <AlertNickname></AlertNickname>
 
-                    <Link to="/createpostboxsteptwo">
-                        <CompleteBtn></CompleteBtn>
-                    </Link>
+                        <div className="create-post-box-btn" onClick={CreatepostboxRequest}>
+                            완료
+                        </div>
 
                 </div>
 
             </S.CreatePostBoxScene>
-        </>
+        </CreatepostboxContext.Provider>
     );
 }
 
