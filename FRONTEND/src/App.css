@@ -1424,6 +1424,17 @@ button#dropdown-basic-button {
   border-radius: 8px;
 }
 
+.check-letter-box {
+  position: absolute;
+  width: 21.6rem;
+  height: 29.48rem;
+  left: calc(50% - 10.8rem);
+  top: 11.9412rem;
+
+  background: #d66e56;
+  border-radius: 8px;
+}
+
 .letter-element {
   width: 100%;
   color: #fff;
@@ -1490,7 +1501,6 @@ button#dropdown-basic-button {
   left: calc(50% - 9.4rem);
   width: 18.8rem;
   height: 19rem;
-  background: #fff;
   display: flex;
 }
 
@@ -1553,4 +1563,34 @@ button#dropdown-basic-button {
 
   color: #4b4362;
   cursor: pointer;
+}
+
+.check-write-mail-ment {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 8.353rem;
+
+  /* text */
+
+  font-family: "Cafe24 Ssurround air";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.471rem;
+
+  /* indego */
+
+  color: #4b4362;
+  z-index: 2;
+}
+
+.check-write-mail-deco {
+  position: absolute;
+  width: 18.06rem;
+  height: 1.12rem;
+  left: calc(50% - 9.03rem);
+  top: 8.71rem;
+
+  background: #fff8dd;
 }

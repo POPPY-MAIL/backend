@@ -16,7 +16,9 @@ function WriteMail() {
       <S.WriteMailScene>
         <div className="fullbox">
           <BackBtn></BackBtn>
-          <SmallCompleteBtn></SmallCompleteBtn>
+          <Link to="/checkwritemail">
+            <SmallCompleteBtn></SmallCompleteBtn>
+          </Link>
           <LogoNamePoppyMail></LogoNamePoppyMail>
           <Colorbar></Colorbar>
           <Letter></Letter>
