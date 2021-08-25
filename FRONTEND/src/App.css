@@ -59,7 +59,7 @@
   --main-bg-color: #fff;
   --poppy-purple: #a38aee;
   --main-txt-color: #4b4362;
-  --dark-bg-color: #424355;
+  --dark-bg-color: #4b4362;
   --dark-txt-color: #fff;
 }
 
@@ -103,6 +103,25 @@
 .swiper-container {
   margin: 0 !important;
   overflow: visible;
+}
+
+.swiper-container#mypostboxswiper .swiper-pagination-bullet {
+  background: #c4c4c4 !important;
+  opacity: 0.2 !important;
+  width: 0.6470588235294118rem !important;
+  height: 0.6470588235294118rem !important;
+  /* transform: translateY(-0.1687289088863892rem); */
+  transform: translateY(0);
+  margin: 0 0.5 !important;
+}
+
+.swiper-container#mypostboxswiper .swiper-pagination-bullet-active {
+  background: #c4c4c4 !important;
+  opacity: 1 !important;
+  width: 0.6470588235294118rem !important;
+  height: 0.6470588235294118rem !important;
+  transform: translateY(0);
+  margin: 0 0.5 !important;
 }
 
 .swiper-pagination-fraction,
@@ -849,6 +868,25 @@ background: #4243554D;
   text-align: center;
 
   color: #fff;
+}
+
+.alert-create-post-box-white {
+  position: absolute;
+  width: 21.1rem;
+  height: 3.83rem;
+  left: calc(50% - 10.55rem);
+  top: 7.9rem;
+  border-radius: 32.5px;
+  background-color: #fff;
+  opacity: 0.95;
+
+  font-family: "Cafe24 Ssurround air";
+  font-size: 0.9rem;
+  line-height: 3.9rem;
+  text-align: center;
+
+  color: var(--poppy-purple);
+  z-index: 2;
 }
 
 .alert-nick-name {
@@ -1620,4 +1658,78 @@ button#dropdown-basic-button {
   height: 18.765rem;
   left: calc(50% - 7.975rem);
   top: 17.942rem;
+}
+
+.MyPostboxImg {
+  position: absolute;
+  width: 8.824rem;
+  height: 15.471rem;
+  left: calc(50% - 4.412rem);
+  top: 4.59rem;
+}
+
+.my-post-box-item-ment1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 23.295rem;
+
+  /* popup_title */
+
+  font-family: "Cafe24 Ssurround";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  line-height: 1.42rem;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+.my-post-box-item-ment2 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 25.471rem;
+
+  /* title2 */
+
+  font-family: "Cafe24 Ssurround";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.34rem;
+  line-height: 1.65rem;
+
+  color: #ffffff;
+}
+
+.my-post-box-item-ment3 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 27.89rem;
+
+  /* text */
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.471rem;
+
+  color: #ffffff;
+}
+
+.copy-my-post-box-link-ment {
+  position: absolute;
+  left: 12.5rem;
+  top: -1rem;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.93rem;
+  line-height: 1.24rem;
+  /* identical to box height */
+
+  color: #ffffff;
 }

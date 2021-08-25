@@ -15,6 +15,7 @@ import LetsWriteMailPage from "./pages/LetsWriteMailPage";
 import WriteMailPage from "./pages/WriteMailPage";
 import CheckWriteMailPage from "./pages/CheckWriteMailPage";
 import CompleteWriteMailPage from "./pages/CompleteWriteMailPage";
+import MyPostboxPage from "./pages/MyPostboxPage";
 
 import "./App.css";
 
@@ -49,7 +50,11 @@ function App() {
               component={CreatePostBoxPage3}
             />
             <Route exact path="/kakaoplus" component={KakaoPlusPage} />
-            <Route exact path="/mypage" component={ReceivedLetterPage} />
+            <Route
+              exact
+              path="/receivedletter"
+              component={ReceivedLetterPage}
+            />
             <Route exact path="/letswritemail" component={LetsWriteMailPage} />
             <Route exact path="/writemail" component={WriteMailPage} />
             <Route
@@ -62,6 +67,7 @@ function App() {
               path="/completewritemail"
               component={CompleteWriteMailPage}
             />
+            <Route exact path="/mypostbox" component={MyPostboxPage} />
           </Switch>
         </div>
       </div>
