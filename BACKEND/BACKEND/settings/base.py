@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import environ, os
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-
 
 # Application definition
 
@@ -46,6 +44,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# simple-jwt authentication
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 # CORS 에러 방지
 CORS_ORIGIN_ALLOW_ALL = True
@@ -91,7 +96,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'BACKEND.wsgi.application'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
