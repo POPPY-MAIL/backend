@@ -112,7 +112,7 @@
   height: 0.6470588235294118rem !important;
   /* transform: translateY(-0.1687289088863892rem); */
   transform: translateY(0);
-  margin: 0 0.5 !important;
+  margin: 0 0.5rem !important;
 }
 
 .swiper-container#mypostboxswiper .swiper-pagination-bullet-active {
@@ -121,7 +121,36 @@
   width: 0.6470588235294118rem !important;
   height: 0.6470588235294118rem !important;
   transform: translateY(0);
-  margin: 0 0.5 !important;
+  margin: 0 0.5rem !important;
+}
+
+.swiper-container#checkarrivedmailswiper .swiper-pagination-bullets {
+  text-align: left;
+  width: max-content;
+  left: 1.412rem;
+  top: 1.5em;
+}
+
+.swiper-container#checkarrivedmailswiper .swiper-pagination-bullet {
+  background: #c4c4c4 !important;
+  opacity: 0.2 !important;
+  width: 6.236rem !important;
+  height: 2.353rem !important;
+  border-radius: 34px !important;
+  transform: translateY(0rem);
+  margin: 0 0.12rem !important;
+  display: inline-block;
+}
+
+.swiper-container#checkarrivedmailswiper .swiper-pagination-bullet-active {
+  background: #c4c4c4 !important;
+  opacity: 1 !important;
+  width: 6.236rem !important;
+  height: 2.353rem !important;
+  border-radius: 34px !important;
+  transform: translateY(0rem);
+  margin: 0 0.12rem !important;
+  display: inline-block;
 }
 
 .swiper-pagination-fraction,
@@ -1195,6 +1224,7 @@ button#dropdown-basic-button {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: left;
+  z-index: 2;
 }
 
 .btn-primary {
@@ -1473,6 +1503,17 @@ button#dropdown-basic-button {
   border-radius: 8px;
 }
 
+.check-arrived-letter-box {
+  position: absolute;
+  width: 21.6rem;
+  height: 29.48rem;
+  left: calc(50% - 10.8rem);
+  top: 6.06rem;
+
+  background: #d66e56;
+  border-radius: 8px;
+}
+
 .letter-element {
   width: 100%;
   color: #fff;
@@ -1732,4 +1773,28 @@ button#dropdown-basic-button {
   /* identical to box height */
 
   color: #ffffff;
+}
+
+.check-arrived-letter-ment {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 5.706rem;
+
+  /* text */
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.471rem;
+
+  color: #ffffff;
+}
+
+.people-img {
+  position: absolute;
+  width: 1.83rem;
+  height: 1.236rem;
+  left: 20.824rem;
+  top: 5.824rem;
 }
