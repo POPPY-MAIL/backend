@@ -14,6 +14,7 @@ import JoinInfoPage from "./pages/JoinInfoPage";
 import LetsWriteMailPage from "./pages/LetsWriteMailPage";
 import WriteMailPage from "./pages/WriteMailPage";
 import CheckWriteMailPage from "./pages/CheckWriteMailPage";
+import CompleteWriteMailPage from "./pages/CompleteWriteMailPage";
 
 import "./App.css";
 
@@ -55,6 +56,11 @@ function App() {
               exact
               path="/checkwritemail"
               component={CheckWriteMailPage}
+            />
+            <Route
+              exact
+              path="/completewritemail"
+              component={CompleteWriteMailPage}
             />
           </Switch>
         </div>

@@ -1594,3 +1594,30 @@ button#dropdown-basic-button {
 
   background: #fff8dd;
 }
+
+.complete-write-mail-ment {
+  position: absolute;
+  width: 100%;
+  top: 10.824rem;
+
+  /* title */
+
+  font-family: "Cafe24 Ssurround";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.7rem;
+  line-height: 2.3rem;
+  text-align: center;
+
+  /* indego */
+
+  color: #4b4362;
+}
+
+.completewritemail-poppy-img {
+  position: absolute;
+  width: 15.95rem;
+  height: 18.765rem;
+  left: calc(50% - 7.975rem);
+  top: 17.942rem;
+}
