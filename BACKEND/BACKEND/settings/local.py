@@ -35,3 +35,7 @@ DATABASES = {
         'PORT': '3306'
     }
 }
+
+SIMPLE_JWT = {
+    'SIGNING_KEY': SECRET_KEY,
+}
