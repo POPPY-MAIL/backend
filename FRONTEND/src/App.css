@@ -1373,3 +1373,184 @@ button#dropdown-basic-button {
   cursor: pointer;
   z-index: 3;
 }
+
+.colorbar-box {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 7.118rem;
+}
+
+.colorbar-element {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  margin: 0 0.736rem;
+}
+
+.colorbar-element#red {
+  background: #d66e56;
+}
+
+.colorbar-element#yellow {
+  background: #f2dba1;
+}
+
+.colorbar-element#green {
+  background: #87afba;
+}
+
+.colorbar-element#navy {
+  background: #4b4362;
+}
+
+.colorbar-element#gray {
+  background: #a8a8a8;
+}
+
+.colorbar-element#lightgray {
+  background: #dadada;
+}
+
+.letter-box {
+  position: absolute;
+  width: 21.6rem;
+  height: 29.48rem;
+  left: calc(50% - 10.8rem);
+  top: 10.95rem;
+
+  background: #d66e56;
+  border-radius: 8px;
+}
+
+.letter-element {
+  width: 100%;
+  color: #fff;
+  margin: 0;
+  top: 0;
+}
+
+.letter-element input {
+  color: #fff;
+  background-color: transparent;
+  font-size: 1rem;
+  border: none;
+}
+
+.letter-element textarea {
+  color: #fff;
+  background-color: transparent;
+  font-size: 1rem;
+  border: none;
+  resize: none;
+}
+
+.letter-element#to-box {
+  height: 4.12rem;
+}
+
+.letter-element#contents-box {
+  height: 20.3rem;
+}
+
+.letter-element#from-box {
+  height: 5.06rem;
+}
+
+.to-txt {
+  position: absolute;
+  top: 1.89rem;
+  left: 1.42rem;
+  font-size: 1.1rem;
+  line-height: 2.24rem;
+}
+
+.to-underline {
+  position: absolute;
+  top: 3.412rem;
+  left: 3.471rem;
+  width: 3.18rem;
+  height: 0.059rem;
+  background: #fff;
+}
+
+.to-contents {
+  position: absolute;
+  top: 1.883rem;
+  left: 3.53rem;
+  width: 5rem;
+
+  line-height: 151.9%;
+}
+
+.contents-contents {
+  position: absolute;
+  top: 4.95rem;
+  left: calc(50% - 9.4rem);
+  width: 18.8rem;
+  height: 19rem;
+  background: #fff;
+  display: flex;
+}
+
+.from-txt {
+  position: absolute;
+  top: 25.89rem;
+  left: 5.53rem;
+  font-size: 1.1rem;
+  line-height: 2.24rem;
+}
+
+.from-underline {
+  position: absolute;
+  top: 27.353rem;
+  left: 8.942rem;
+  width: 11.06rem;
+  height: 0.059rem;
+  background: #fff;
+}
+
+.from-contents {
+  /* position: absolute;
+  top: 26rem;
+  left: 9rem;
+  width: 10.89rem;
+  font-size: 1.1rem;
+  line-height: 2.24rem; */
+
+  position: absolute;
+  top: 25.8rem;
+  left: 9rem;
+  width: 11rem;
+
+  line-height: 151.9%;
+}
+
+.from-contents::placeholder {
+  font-size: 0.6667rem;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.small-complete-btn {
+  position: absolute;
+  /* width: 34px;
+  height: 21px; */
+  left: 20.71rem;
+  top: 3.53rem;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.24rem;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* indego */
+
+  color: #4b4362;
+  cursor: pointer;
+}
