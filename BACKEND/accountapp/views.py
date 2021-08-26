@@ -121,7 +121,8 @@ class LogoutView(APIView):  # 로그아웃
         for token in tokens:
             t, _ = BlacklistedToken.objects.get_or_create(token=token)
 
-        return Response(status=status.HTTP_205_RESET_CONTENT)
+        content = {'로그아웃 성공'}
+        return Response(content, status=status.HTTP_205_RESET_CONTENT)
 
 
 """
