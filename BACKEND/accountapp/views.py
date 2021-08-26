@@ -15,6 +15,7 @@ from rest_framework.permissions import AllowAny
 
 from rest_framework.views import APIView
 from .serializers import AddUserInfoSerializer
+from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -55,12 +56,13 @@ class KakaoLoginView(View):  # 카카오 로그인
 
 class LoginView(APIView):  # 로그인
     permission_classes = [AllowAny]
+
     # 카카오톡에 사용자 정보 요청
     def getUserFromKakao(self, request):
         access_token = request.headers["Authorization"]
         headers = ({'Authorization': f"Bearer {access_token}"})
-        url = "https://kapi.kakao.com/v2/user/me"  # Authorization(프론트에서 전달한 카카오 access_token)을 이용해서 회원 정보를 받아오기 위한 카카오 API
-        response = requests.request("POST", url, headers=headers)  # API를 요청하여 회원의 정보를 response에 저장
+        url = "https://kapi.kakao.com/v2/user/me"
+        response = requests.request("POST", url, headers=headers)  # POST 요청하여 회원 정보 response에 저장
         return response.json()
 
     # DB에 있는지 판별
@@ -92,7 +94,7 @@ class LoginView(APIView):  # 로그인
             is_new = 'Y'
 
         response = self.createJWT(user)
-        return JsonResponse( # 수정) serializer로 변경 가능한지 생각해보기
+        return JsonResponse(  # 수정) serializer로 변경 가능한지 생각해보기
             {
                 'access': response.json()['access'],
                 'refresh': response.json()['refresh'],
@@ -103,16 +105,22 @@ class LoginView(APIView):  # 로그인
         )
 
 
-# Create가 아니라 update를 시킬까..?
-class AddUserInfoView(UpdateAPIView): # 사용자 정보 추가 입력(업데이트)
-    # 인증 & 허가 - JWTAuthentication, IsAuthenticated
+class AddUserInfoView(UpdateAPIView):  # 사용자 정보 추가 입력(업데이트)
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
 
     queryset = AppUser.objects.all()
     serializer_class = AddUserInfoSerializer
 
 
+class LogoutView(APIView):  # 로그아웃
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
 
+    def post(self, request):
+        tokens = OutstandingToken.objects.filter(user_id=request.user.id)
+        for token in tokens:
+            t, _ = BlacklistedToken.objects.get_or_create(token=token)
 
+        return Response(status=status.HTTP_205_RESET_CONTENT)
 
 
 """
