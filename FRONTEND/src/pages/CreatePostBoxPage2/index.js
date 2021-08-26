@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as S from "./styles";
 import Navbar from "../../components/Navbar";
@@ -32,9 +33,11 @@ function CreatePostBoxPage2() {
 
           <CreatePostBoxMent></CreatePostBoxMent>
 
-          <Link to="/createpostboxstepthree">
-            <PostboxBefore></PostboxBefore>
-          </Link>
+          <CopyToClipboard text="우체통주소">
+            <Link to="/createpostboxstepthree">
+              <PostboxBefore></PostboxBefore>
+            </Link>
+          </CopyToClipboard>
 
           <LinkName></LinkName>
         </div>
