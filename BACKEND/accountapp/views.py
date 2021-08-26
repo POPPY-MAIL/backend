@@ -94,14 +94,15 @@ class LoginView(APIView):  # 로그인
             is_new = 'Y'
 
         response = self.createJWT(user)
-        return JsonResponse(  # 수정) serializer로 변경 가능한지 생각해보기
-            {
+
+        return Response(
+            data={
                 'access': response.json()['access'],
                 'refresh': response.json()['refresh'],
                 'is_new': is_new,
                 'user_id': user.id
             },
-            status=200,
+            status=status.HTTP_200_OK
         )
 
 
