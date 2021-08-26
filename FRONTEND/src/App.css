@@ -299,7 +299,7 @@
   width: 10rem;
   height: 1.1875rem;
   left: calc(50% - 5rem);
-  top: 3.487064116985377rem;
+  top: 2.471rem;
 
   font-family: Apple SD Gothic Neo;
   font-style: normal;
@@ -336,7 +336,7 @@
   width: 19.23529411764706rem;
   height: 19rem;
   left: calc(50% - 9.617647058823529rem);
-  top: 11.58605174353206rem;
+  top: 10.59rem;
 }
 
 .postboxbefore img {
@@ -402,7 +402,7 @@
   width: 8.25rem;
   height: 3.75rem;
   left: calc(50% - 4.12rem);
-  top: 32.2rem;
+  top: 32.3rem;
 
   /* font-family: Cafe24 Ssurround air;
 font-style: normal;
@@ -423,7 +423,7 @@ font-weight: normal; */
   width: 21rem;
   height: 3.7rem;
   left: calc(50% - 10.5rem);
-  top: 40rem;
+  top: 38.18rem;
 
   /* indego */
 
@@ -486,7 +486,7 @@ font-weight: normal; */
   width: 21rem;
   height: 3.7rem;
   left: calc(50% - 10.5rem);
-  top: 44.5rem;
+  top: 42.71rem;
 
   background: #fff;
   color: var(--main-txt-color);
@@ -509,7 +509,7 @@ background: #4243554D;
   width: 0.4rem;
   height: 0.1124859392575928rem;
   left: 4.21822272215973rem;
-  top: 48.1rem;
+  top: 46.29751406074241rem;
 
   background: #ffffff;
 }
@@ -519,7 +519,7 @@ background: #4243554D;
   width: 0.4rem;
   height: 0.1124859392575928rem;
   left: 18.785151856018rem;
-  top: 44.5rem;
+  top: 42.71rem;
 
   background: #ffffff;
 }
@@ -1045,7 +1045,7 @@ background: #4243554D;
 .poppy-tag {
   position: absolute;
   left: 17rem;
-  top: 8.353rem;
+  top: 7.177rem;
   font-size: 1.1rem;
   line-height: 1.77rem;
   color: var(--main-txt-color);
@@ -1054,7 +1054,7 @@ background: #4243554D;
 .bird-tag {
   position: absolute;
   left: 4.2942rem;
-  top: 12.471rem;
+  top: 11.3rem;
   font-size: 1.1rem;
   line-height: 1.77rem;
   color: var(--main-txt-color);
@@ -1063,13 +1063,13 @@ background: #4243554D;
 .poppy-tag-img {
   position: absolute;
   left: 16.6rem;
-  top: 10.4rem;
+  top: 9.5rem;
 }
 
 .bird-tag-img {
   position: absolute;
   left: 4.4rem;
-  top: 14.4rem;
+  top: 13.7rem;
 }
 
 .Nav-icon {

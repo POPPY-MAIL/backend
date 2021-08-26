@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import * as S from "./styles";
 import BackBtn from "../../components/Btn/BackBtnDark";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Thumbs, Pagination, Autoplay } from "swiper";
+import SwiperCore, { Thumbs, Pagination } from "swiper";
 import "swiper/swiper.scss";
 import "swiper/components/thumbs/thumbs.scss";
 import "swiper/components/pagination/pagination.scss";
@@ -14,7 +14,7 @@ import CheckArrivedLetterMent from "../../components/Txt/CheckArrivedMailMent";
 import PeopleImg from "../../image/people.png";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 
-SwiperCore.use([Thumbs, Pagination, Autoplay]);
+SwiperCore.use([Thumbs, Pagination]);
 
 function CheckArrivedMail() {
   //   if (loading) return <LoadingScreen />;
@@ -38,7 +38,6 @@ function CheckArrivedMail() {
               slidesPerView={1}
               thumbs
               pagination={{ clickable: true }}
-              autoplay={{ delay: 5000 }}
               id="checkarrivedmailswiper"
             >
               <SwiperSlide>
