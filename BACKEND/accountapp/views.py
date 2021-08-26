@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
-from rest_framework.generics import GenericAPIView, CreateAPIView
+from rest_framework.generics import GenericAPIView
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -47,9 +47,8 @@ class KakaoLoginView(View):  # 카카오 로그인
             }, status=200)
 
 
-class LoginView(CreateAPIView):  # 로그인
+class LoginView(GenericAPIView):  # 로그인
     # 카카오톡에 사용자 정보 요청
-    @staticmethod
     def getUserFromKakao(self, request):
         access_token = request.headers["Authorization"]
         headers = ({'Authorization': f"Bearer {access_token}"})
@@ -96,6 +95,8 @@ class LoginView(CreateAPIView):  # 로그인
             status=200,
             content=content
         )
+
+
 """
 
 class AddUserInfoView(GenericAPIView): # 사용자 정보 추가 입력
