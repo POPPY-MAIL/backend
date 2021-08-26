@@ -458,10 +458,10 @@
 
 .poppy img {
   position: absolute;
-  width: 19.23529411764706rem;
-  height: 19rem;
-  left: calc(50% - 9.617647058823529rem);
-  top: 10.59rem;
+  width: 15.89rem;
+  height: 15.64rem;
+  left: calc(50% - 7.945rem);
+  top: 10.78rem;
 }
 
 .postboxbefore img {
@@ -527,13 +527,13 @@
   width: 8.25rem;
   height: 3.75rem;
   left: calc(50% - 4.12rem);
-  top: 32.3rem;
+  top: 27.59rem;
 
   /* font-family: Cafe24 Ssurround air;
 font-style: normal;
 font-weight: normal; */
   font-size: 1.124859392575928rem;
-  line-height: 1.5rem;
+  line-height: 1.77rem;
   text-align: center;
 
   color: #000000;
@@ -548,7 +548,7 @@ font-weight: normal; */
   width: 21rem;
   height: 3.7rem;
   left: calc(50% - 10.5rem);
-  top: 38.18rem;
+  top: 34.3rem;
 
   /* indego */
 
@@ -611,7 +611,7 @@ font-weight: normal; */
   width: 21rem;
   height: 3.7rem;
   left: calc(50% - 10.5rem);
-  top: 42.71rem;
+  top: 38.83rem;
 
   background: #fff;
   color: var(--main-txt-color);
@@ -634,7 +634,7 @@ background: #4243554D;
   width: 0.4rem;
   height: 0.1124859392575928rem;
   left: 4.21822272215973rem;
-  top: 46.29751406074241rem;
+  top: 42.41751406074241rem;
 
   background: #ffffff;
 }
@@ -644,7 +644,7 @@ background: #4243554D;
   width: 0.4rem;
   height: 0.1124859392575928rem;
   left: 18.785151856018rem;
-  top: 42.71rem;
+  top: 38.83rem;
 
   background: #ffffff;
 }
@@ -1170,7 +1170,7 @@ background: #4243554D;
 .poppy-tag {
   position: absolute;
   left: 17rem;
-  top: 7.177rem;
+  top: 6.42rem;
   font-size: 1.1rem;
   line-height: 1.77rem;
   color: var(--main-txt-color);
@@ -1179,7 +1179,7 @@ background: #4243554D;
 .bird-tag {
   position: absolute;
   left: 4.2942rem;
-  top: 11.3rem;
+  top: 10.55rem;
   font-size: 1.1rem;
   line-height: 1.77rem;
   color: var(--main-txt-color);
@@ -1188,13 +1188,13 @@ background: #4243554D;
 .poppy-tag-img {
   position: absolute;
   left: 16.6rem;
-  top: 9.5rem;
+  top: 8.6rem;
 }
 
 .bird-tag-img {
   position: absolute;
   left: 4.4rem;
-  top: 13.7rem;
+  top: 12.8rem;
 }
 
 .Nav-icon {
