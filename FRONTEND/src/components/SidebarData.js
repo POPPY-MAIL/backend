@@ -4,13 +4,28 @@ import MyPageImg from "./Img/MyPageImg";
 import AboutImg from "./Img/AboutImg";
 import FaqImg from "./Img/FaqImg";
 import LogoutImg from "./Img/LogoutImg";
+import KakaoplusiconImg from "./Img/KakaoplusiconImg";
 
 export const SidebarData = [
   {
     title: "마이 페이지",
-    path: "/receivedletter",
     icon: <MyPageImg />,
-    cName: "nav-text",
+    cName: "nav-text1",
+  },
+  {
+    title: "탈퇴하기",
+    path: "/",
+    cName: "nav-text-small1",
+  },
+  {
+    title: "받은 편지 보기",
+    path: "/receivedletter",
+    cName: "nav-text-small",
+  },
+  {
+    title: "나의 우체통 링크",
+    path: "/mypostbox",
+    cName: "nav-text-small3",
   },
   {
     title: "About 파피메일",
@@ -28,6 +43,12 @@ export const SidebarData = [
     title: "로그아웃",
     path: "/login",
     icon: <LogoutImg />,
+    cName: "nav-text",
+  },
+  {
+    title: "카카오친구 추가하기",
+    path: "/login",
+    icon: <KakaoplusiconImg />,
     cName: "nav-text",
   },
 ];
