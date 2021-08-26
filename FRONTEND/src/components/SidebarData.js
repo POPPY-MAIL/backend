@@ -47,7 +47,7 @@ export const SidebarData = [
   },
   {
     title: "카카오친구 추가하기",
-    path: "/login",
+    path: "/kakaoplus",
     icon: <KakaoplusiconImg />,
     cName: "nav-text",
   },

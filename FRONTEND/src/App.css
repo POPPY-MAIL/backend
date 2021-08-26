@@ -1149,6 +1149,7 @@ background: #4243554D;
   height: 3.59rem;
   left: calc(50% - 6.415rem);
   top: 24rem;
+  cursor: pointer;
 }
 
 .arrow-img {
@@ -1267,6 +1268,7 @@ background: #4243554D;
   height: 2.65rem;
   top: 46.53rem;
   left: calc(50% - 4.706rem);
+  cursor: pointer;
 }
 
 .joininput-name .input-title {
