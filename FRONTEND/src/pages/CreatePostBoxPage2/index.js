@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as S from "./styles";
 import Navbar from "../../components/Navbar";
@@ -16,6 +16,20 @@ function CreatePostBoxPage2() {
   setTimeout(() => {
     setAlert(null);
   }, 2000);
+
+  const Copy = () => {
+    copyToClipboard("dndsidsidisdi");
+    console.log("Copied!");
+  };
+
+  const copyToClipboard = val => {
+    const t = document.createElement("textarea");
+    document.body.appendChild(t);
+    t.value = val;
+    t.select();
+    document.execCommand("copy");
+    document.body.removeChild(t);
+  };
 
   //   if (loading) return <LoadingScreen />;
   //   if (error) return <div>에러가 발생했습니다.</div>;
@@ -33,11 +47,17 @@ function CreatePostBoxPage2() {
 
           <CreatePostBoxMent></CreatePostBoxMent>
 
-          <CopyToClipboard text="우체통주소">
+          {/* <CopyToClipboard text="우체통주소">
             <Link to="/createpostboxstepthree">
               <PostboxBefore></PostboxBefore>
             </Link>
-          </CopyToClipboard>
+          </CopyToClipboard> */}
+
+          <div onClick={Copy}>
+            <Link to="/createpostboxstepthree">
+              <PostboxBefore></PostboxBefore>
+            </Link>
+          </div>
 
           <LinkName></LinkName>
         </div>
