@@ -331,3 +331,8 @@ fabric.properties
 FRONTEND/src/index.css
 FRONTEND/src/index.js
 FRONTEND/src/reportWebVitals.js
+FRONTEND/src/App.test.js
+FRONTEND/src/index.css
+FRONTEND/src/index.js
+FRONTEND/src/reportWebVitals.js
+FRONTEND/src/setupTests.js

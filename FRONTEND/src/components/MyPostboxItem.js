@@ -1,5 +1,6 @@
 import React from "react";
 import MyPostboxImg from "../image/mypostboxitemimg.png";
+import OpenPostboxBtn from "./Btn/OpenPostboxBtn";
 // import * as S from './styles';
 
 function MyPostboxItem() {
@@ -16,6 +17,7 @@ function MyPostboxItem() {
       <div className="my-post-box-item-ment3">
         편지 열람이 가능할 때 알림이 가요!
       </div>
+      <OpenPostboxBtn></OpenPostboxBtn>
     </>
   );
 }

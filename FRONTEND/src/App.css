@@ -105,6 +105,10 @@
   overflow: visible;
 }
 
+.swiper-container#mypostboxswiper .swiper-pagination-bullets {
+  transform: translateY(7.06rem);
+}
+
 .swiper-container#mypostboxswiper .swiper-pagination-bullet {
   background: #c4c4c4 !important;
   opacity: 0.2 !important;
@@ -1427,9 +1431,9 @@ button#dropdown-basic-button {
 .popuppoppy {
   position: absolute;
   width: 9.648rem;
-  height: 10.385rem;
+  height: 9.53rem;
   left: calc(50% - 4.824rem);
-  top: 5.069rem;
+  top: 5.18rem;
 }
 
 .cancelimg {
@@ -1797,4 +1801,26 @@ button#dropdown-basic-button {
   height: 1.236rem;
   left: 20.824rem;
   top: 5.824rem;
+}
+
+.open-post-box-btn {
+  font-family: "Roboto bold";
+  font-weight: bold;
+  font-size: 1.012373453318335rem;
+
+  position: absolute;
+  width: 21rem;
+  height: 3.7rem;
+  left: calc(50% - 10.5rem);
+  top: 31.59rem;
+
+  /* indego */
+
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 3.7rem;
+  cursor: pointer;
 }
