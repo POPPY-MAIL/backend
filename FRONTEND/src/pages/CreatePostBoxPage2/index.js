@@ -1,46 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import * as S from './styles';
-import Navbar from '../../components/Navbar';
-import LogoNameCreatePostBox from '../../components/Txt/LogoNameCreatePostBox';
-import BackBtn from '../../components/Btn/BackBtn';
-import CreatePostBoxMent from '../../components/Txt/CreatePostBoxMent';
-import LinkName from '../../components/Txt/LinkName';
-import PostboxBefore from '../../components/Img/PostboxBefore';
-import GoHomeBtn from '../../components/Btn/GoHomeBtn';
-import AlertCretePostbox from '../../components/Alert/AlertCreatePostbox';
-
+import * as S from "./styles";
+import Navbar from "../../components/Navbar";
+import LogoNameCreatePostBox from "../../components/Txt/LogoNameCreatePostBox";
+import BackBtn from "../../components/Btn/BackBtn";
+import CreatePostBoxMent from "../../components/Txt/CreatePostBoxMent";
+import LinkName from "../../components/Txt/LinkName";
+import PostboxBefore from "../../components/Img/PostboxBefore";
+import AlertCretePostbox from "../../components/Alert/AlertCreatePostbox";
 
 function CreatePostBoxPage2() {
+  const [_alert, setAlert] = useState(<AlertCretePostbox></AlertCretePostbox>);
+  setTimeout(() => {
+    setAlert(null);
+  }, 2000);
 
-    //   if (loading) return <LoadingScreen />;
-    //   if (error) return <div>에러가 발생했습니다.</div>;
-    return (
-        <>
-            <S.CreatePostBoxScene>
-                <div className="fullbox">
-                        <BackBtn></BackBtn>
-                    <Navbar></Navbar>
+  //   if (loading) return <LoadingScreen />;
+  //   if (error) return <div>에러가 발생했습니다.</div>;
+  return (
+    <>
+      <S.CreatePostBoxScene>
+        <div className="fullbox">
+          <BackBtn></BackBtn>
+          <Navbar></Navbar>
 
-                    <LogoNameCreatePostBox></LogoNameCreatePostBox>
+          <LogoNameCreatePostBox></LogoNameCreatePostBox>
 
-                    <AlertCretePostbox></AlertCretePostbox>
+          {/* <AlertCretePostbox></AlertCretePostbox> */}
+          {_alert}
 
-                    <CreatePostBoxMent></CreatePostBoxMent>
+          <CreatePostBoxMent></CreatePostBoxMent>
 
-                    <Link to="/createpostboxstepthree">
-                        <PostboxBefore></PostboxBefore>
-                    </Link>
-                    
-                    <LinkName></LinkName>
-                    
+          <Link to="/createpostboxstepthree">
+            <PostboxBefore></PostboxBefore>
+          </Link>
 
-                </div>
-
-            </S.CreatePostBoxScene>
-        </>
-    );
+          <LinkName></LinkName>
+        </div>
+      </S.CreatePostBoxScene>
+    </>
+  );
 }
 
 export default CreatePostBoxPage2;

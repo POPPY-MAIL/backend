@@ -223,6 +223,7 @@
   opacity: 1;
   transition: 350ms;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  z-index: 3;
 }
 
 .nav-text {
@@ -938,7 +939,7 @@ background: #4243554D;
 
   position: absolute;
   width: 20rem;
-  height: 1.2rem;
+  height: 2rem;
   top: 11.5rem;
   left: 1.5rem;
   color: #000;

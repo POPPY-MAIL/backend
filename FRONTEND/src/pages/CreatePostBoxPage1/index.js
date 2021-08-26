@@ -32,7 +32,7 @@ function CreatePostBoxPage1() {
     if (nickname === "") {
       alert("필수 입력 요소가 작성되지 않았습니다 ... 알림창 만드러야댐");
     } else {
-      alert(nickname);
+      //   alert(nickname);
       setAlert(
         <div>
           <AlertNickname></AlertNickname>
