@@ -10,7 +10,7 @@ from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
 from requests import Response
 from rest_framework import request, status
-from rest_framework.generics import GenericAPIView, CreateAPIView
+from rest_framework.generics import GenericAPIView, CreateAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 
 from rest_framework.views import APIView
@@ -54,7 +54,7 @@ class KakaoLoginView(View):  # 카카오 로그인
 
 
 class LoginView(APIView):  # 로그인
-    permission_classes = AllowAny
+    permission_classes = [AllowAny]
     # 카카오톡에 사용자 정보 요청
     def getUserFromKakao(self, request):
         access_token = request.headers["Authorization"]
@@ -66,7 +66,7 @@ class LoginView(APIView):  # 로그인
     # DB에 있는지 판별
     def checkUserInDB(self, kakao_user):
         try:
-            user = User.objects.get(username=kakao_user['id']
+            user = User.objects.get(username=kakao_user['id'])
             return user, True
         except User.DoesNotExist:  # 신규 회원일 때
             user = User.objects.create_user(
@@ -96,29 +96,20 @@ class LoginView(APIView):  # 로그인
             {
                 'access': response.json()['access'],
                 'refresh': response.json()['refresh'],
-                'is_new': is_new
+                'is_new': is_new,
+                'user_id': user.id
             },
             status=200,
         )
 
 
-class AddUserInfoView(CreateAPIView): # 사용자 정보 추가 입력, create-only endpoint
+# Create가 아니라 update를 시킬까..?
+class AddUserInfoView(UpdateAPIView): # 사용자 정보 추가 입력(업데이트)
     # 인증 & 허가 - JWTAuthentication, IsAuthenticated
 
+    queryset = AppUser.objects.all()
     serializer_class = AddUserInfoSerializer
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create_userInfo(request, serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-    def perform_create_userInfo(self, request, serializer):
-        auth_user = request.user
-        serializer.save(
-            user=auth_user
-        )
 
 
 
