@@ -1,12 +1,14 @@
 import jwt
 import requests
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from BACKEND.settings.local import SECRET_KEY # 로컬 : local
+from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
+from rest_framework.generics import GenericAPIView, CreateAPIView
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -43,3 +45,64 @@ class KakaoLoginView(View):  # 카카오 로그인
                 'user_name': new_user_info.name,
                 'user_pk': new_user_info.id,
             }, status=200)
+
+
+class LoginView(CreateAPIView):  # 로그인
+    # 카카오톡에 사용자 정보 요청
+    @staticmethod
+    def getUserFromKakao(self, request):
+        access_token = request.headers["Authorization"]
+        headers = ({'Authorization': f"Bearer {access_token}"})
+        url = "https://kapi.kakao.com/v2/user/me"  # Authorization(프론트에서 전달한 카카오 access_token)을 이용해서 회원 정보를 받아오기 위한 카카오 API
+        response = requests.request("POST", url, headers=headers)  # API를 요청하여 회원의 정보를 response에 저장
+        return response.json()
+
+    # DB에 있는지 판별
+    def checkUserInDB(self, kakao_user):
+        try:
+            user = User.objects.get(username=kakao_user['id'])
+            return user, True
+        except User.DoesNotExist:  # 신규 회원일 때
+            user = User(
+                username=kakao_user['id'],
+                password='poppymail',
+                email='test@gmail.com'
+            )
+            user.save()
+            return user, False
+
+    # 토큰 생성 (simple-jwt)
+    def createJWT(self, user):
+        url = 'http://127.0.0.1:8000/api/token/'  # 배포 후 url 변경
+        payload = {'username': user.username, 'password': 'poppymail'}
+        return requests.post(url, json=payload)
+
+    # POST 오버라이딩
+    def post(self, request):
+        kakao_user = self.getUserFromKakao(request)
+        user, check = self.checkUserInDB(kakao_user)
+
+        if check:
+            content = {'New User': 'N'}
+        else:
+            content = {'New User': 'Y'}
+
+        response = self.createJWT(user)
+        return JsonResponse(
+            {
+                'access': response.json()['access'],
+                'refresh': response.json()['refresh']
+            },
+            status=200,
+            content=content
+        )
+"""
+
+class AddUserInfoView(GenericAPIView): # 사용자 정보 추가 입력
+
+
+class LogoutView(): # 로그아웃
+
+class SignoutView(): # 탈퇴
+
+"""
