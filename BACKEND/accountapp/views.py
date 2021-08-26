@@ -12,6 +12,8 @@ from requests import Response
 from rest_framework.generics import GenericAPIView, CreateAPIView
 import logging
 
+from rest_framework.views import APIView
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class KakaoLoginView(View):  # 카카오 로그인
@@ -49,7 +51,7 @@ class KakaoLoginView(View):  # 카카오 로그인
             }, status=200)
 
 
-class LoginView(CreateAPIView):  # 로그인
+class LoginView(APIView):  # 로그인
     # 카카오톡에 사용자 정보 요청
     def getUserFromKakao(self, request):
         access_token = request.headers["Authorization"]
