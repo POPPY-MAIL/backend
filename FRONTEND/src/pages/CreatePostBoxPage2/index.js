@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as S from "./styles";
 import Navbar from "../../components/Navbar";
