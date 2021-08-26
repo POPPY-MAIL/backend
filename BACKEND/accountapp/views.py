@@ -8,9 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
-from requests import Response
+from rest_framework.response import Response
 from rest_framework import request, status
-from rest_framework.generics import GenericAPIView, CreateAPIView, UpdateAPIView
+from rest_framework.generics import UpdateAPIView
 from rest_framework.permissions import AllowAny
 
 from rest_framework.views import APIView
@@ -124,12 +124,6 @@ class LogoutView(APIView):  # 로그아웃
 
 
 """
-
-
-
-
-class LogoutView(): # 로그아웃
-
 class SignoutView(): # 탈퇴
 
 """
