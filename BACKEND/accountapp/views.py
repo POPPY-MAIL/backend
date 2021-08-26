@@ -8,7 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
-from rest_framework.generics import GenericAPIView
+from requests import Response
+from rest_framework.generics import GenericAPIView, CreateAPIView
+import logging
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -47,7 +49,7 @@ class KakaoLoginView(View):  # 카카오 로그인
             }, status=200)
 
 
-class LoginView(GenericAPIView):  # 로그인
+class LoginView(CreateAPIView):  # 로그인
     # 카카오톡에 사용자 정보 요청
     def getUserFromKakao(self, request):
         access_token = request.headers["Authorization"]
@@ -60,14 +62,14 @@ class LoginView(GenericAPIView):  # 로그인
     def checkUserInDB(self, kakao_user):
         try:
             user = User.objects.get(username=kakao_user['id'])
+
             return user, True
         except User.DoesNotExist:  # 신규 회원일 때
-            user = User(
-                username=kakao_user['id'],
-                password='poppymail',
-                email='test@gmail.com'
+            user = User.objects.create_user(
+                kakao_user['id'],
+                'test@gmail.com',
+                'poppymail'
             )
-            user.save()
             return user, False
 
     # 토큰 생성 (simple-jwt)
@@ -82,19 +84,24 @@ class LoginView(GenericAPIView):  # 로그인
         user, check = self.checkUserInDB(kakao_user)
 
         if check:
-            content = {'New User': 'N'}
+            is_new = 'N'
         else:
-            content = {'New User': 'Y'}
+            is_new = 'Y'
 
         response = self.createJWT(user)
         return JsonResponse(
             {
                 'access': response.json()['access'],
-                'refresh': response.json()['refresh']
+                'refresh': response.json()['refresh'],
+                'is_new': is_new
             },
             status=200,
-            content=content
         )
+
+
+
+
+
 
 
 """
