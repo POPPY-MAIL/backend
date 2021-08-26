@@ -21,7 +21,7 @@ class MailBox(models.Model):
         db_table = 'mailbox'  # default: mailboxapp_mailbox
 
     def number_of_letter(self):  # 우체통의 편지 개수 반환 메서드
-        return self.letters.all().count() # using related_name
+        return self.letters.all().count()  # using related_name
 
     def set_mailbox_link(self):
         return 'https://poppymail.com/mailbox/' + self.id
