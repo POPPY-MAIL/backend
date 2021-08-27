@@ -89,9 +89,9 @@ class LoginView(APIView):  # 로그인
         user, check = self.checkUserInDB(kakao_user)
 
         if check:
-            is_new = 'N'
+            is_new = 'false'
         else:
-            is_new = 'Y'
+            is_new = 'true'
 
         response = self.createJWT(user)
 
