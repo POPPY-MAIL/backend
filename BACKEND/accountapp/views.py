@@ -10,7 +10,7 @@ from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
 from rest_framework.response import Response
 from rest_framework import request, status
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import UpdateAPIView, DestroyAPIView
 from rest_framework.permissions import AllowAny
 
 from rest_framework.views import APIView
@@ -125,7 +125,13 @@ class LogoutView(APIView):  # 로그아웃
         return Response(content, status=status.HTTP_205_RESET_CONTENT)
 
 
-"""
-class SignoutView(): # 탈퇴
+class SignoutView(DestroyAPIView):  # 탈퇴
+    # auth_user 삭제하면 -> AppUser, OutstandingToken, BlacklistedToken도 삭제됨 (서로 cascade로 설정되어 있음)
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+    queryset = User.objects.all()
 
-"""
+    def destroy(self, request, *args, **kwargs):
+        instance = User.objects.get(pk=request.user.id)
+        self.perform_destroy(instance)
+        content = {'탈퇴 완료'}
+        return Response(content, status=status.HTTP_204_NO_CONTENT)
