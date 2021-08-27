@@ -5,13 +5,10 @@ from datetime import date
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from mailboxapp.models import MailBox
-from mailboxapp.serializers import CreateMailBoxSerializer, ListMailBoxSerializer, GetMailBoxSerializer
+from .models import MailBox
+from .serializers import CreateMailBoxSerializer, ListMailBoxSerializer, GetMailBoxSerializer
 from letterapp.serializers import ListLetterSerializer, CreateLetterSerializer
 
-
-# ViewSet 사용
-# api 다 그냥 mailbox로 통일시켜버려... my-mailbox -> mailbox로 .. 그럼 한방에 처리 가능함!
 
 def get_random_open_date():  # 랜덤 우체통 공개 날짜 생성 메서드
     # 랜덤 날짜 조건 : 우체통 봉인 시점(우체통 생성 후 3일 뒤)부터 1주일 ~ 1달 후

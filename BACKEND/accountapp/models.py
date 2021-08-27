@@ -16,3 +16,5 @@ class AppUser(models.Model):
 
     class Meta:
         db_table = 'app_user'
+
+    # def number_of_letters_in_mailbox_opened_today(self):

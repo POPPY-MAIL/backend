@@ -101,7 +101,7 @@ class LoginView(APIView):  # 로그인
                 'refresh': response.json()['refresh'],
                 'is_new': is_new,
                 'user_id': user.id
-            },
+            },  # serializer.data와 동일한 형태
             status=status.HTTP_200_OK
         )
 
