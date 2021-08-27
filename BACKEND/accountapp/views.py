@@ -112,6 +112,12 @@ class AddUserInfoView(UpdateAPIView):  # 사용자 정보 추가 입력(업데�
     queryset = AppUser.objects.all()
     serializer_class = AddUserInfoSerializer
 
+    def patch(self, request, *args, **kwargs):
+        # <int:pk> 값의 User와 연결된 AppUser 객체가 없는 경우 객체 생성 먼저 해줌
+        AppUser.objects.create(user=User.objects.get(pk=request.user.id))
+
+        return self.partial_update(request, *args, **kwargs)
+
 
 class LogoutView(APIView):  # 로그아웃
     # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
