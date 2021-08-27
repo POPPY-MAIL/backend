@@ -113,8 +113,8 @@ class AddUserInfoView(UpdateAPIView):  # 사용자 정보 추가 입력(업데�
     serializer_class = AddUserInfoSerializer
 
     def patch(self, request, *args, **kwargs):
-        # <int:pk> 값의 User와 연결된 AppUser 객체가 없는 경우 객체 생성 먼저 해줌
-        AppUser.objects.create(user=User.objects.get(pk=request.user.id))
+        if AppUser.objects.filter(pk=request.user.id).exists() is False:  # 해당 id 값의 AppUser 객체가 없는 경우
+            AppUser.objects.create(user=User.objects.get(pk=request.user.id))
 
         return self.partial_update(request, *args, **kwargs)
 
