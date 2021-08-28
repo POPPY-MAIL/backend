@@ -6,7 +6,8 @@ class AppUser(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        primary_key=True
+        primary_key=True,
+        related_name='app_user'
     )  # user_id, related_name default : appuser
     name = models.CharField(max_length=20, null=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
