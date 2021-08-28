@@ -58,8 +58,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         response_mailbox_serializer = GetMailBoxSerializer(mailbox)
 
         headers = self.get_success_headers(response_mailbox_serializer.data)
-        content = {'우체통 생성 완료'}
-        return Response(response_mailbox_serializer.data, content, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(response_mailbox_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def perform_create_mailbox(self, request, serializer):
         # user, link_title, open_date 값 추가하기
