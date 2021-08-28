@@ -32,11 +32,11 @@ class MailBoxViewSet(viewsets.ModelViewSet):
 
     # GenericAPIView클래스의 get_serializer_class() 메서드 오버라이딩 - 조건에 맞는 Serializer 반환
     def get_serializer_class(self):
-        if self.http_method_names == 'post':
+        if self.request.method == 'POST':
             if self.name == 'create_letter':
                 return CreateLetterSerializer
             return CreateMailBoxSerializer
-        elif self.http_method_names == 'get':
+        elif self.request.method == 'GET':
             if self.name == 'get_letters':
                 return ListLetterSerializer
             return ListMailBoxSerializer
@@ -54,7 +54,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)  # CreateMailBoxSerializer
         serializer.is_valid(raise_exception=True)
 
-        mailbox = self.perform_create_mailbox(serializer)
+        mailbox = self.perform_create_mailbox(request, serializer)
         response_mailbox_serializer = GetMailBoxSerializer(mailbox)
 
         headers = self.get_success_headers(response_mailbox_serializer.data)
