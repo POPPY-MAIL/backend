@@ -42,7 +42,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
             return ListMailBoxSerializer
 
     """
-    POST mailbox (우체통 생성) 
+    POST mailbox/ (우체통 생성) 
     """
 
     def create(self, request, *args, **kwargs):
@@ -75,7 +75,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         return mailbox
 
     """
-    GET mailbox (개인의 모든 우체통 조회) - ModelViewSet 에 이미 정의되어 있음(수정 X) 
+    GET mailbox/ (개인의 모든 우체통 조회) - ModelViewSet 에 이미 정의되어 있음(수정 X) 
     """
 
     """
@@ -96,29 +96,6 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     """
-    DELETE mailbox/<int:mailbox_pk> - ModelViewSet 에 이미 정의되어 있음(수정 X)
+    DELETE mailbox/<int:mailbox_pk>/ - ModelViewSet 에 이미 정의되어 있음(수정 X)
     """
 
-    # 밑에 부분(get, post) 코드 작성하기 . . & authentication과 permission 설정 해줘야 함
-
-    """
-    GET mailbox/<int:mailbox_pk>/{우체통 별 랜덤값} -> 요청 body로 랜덤값 넘겨받기 -> 이거 아닌거 같아.. url에서 뽑아야 할 듯 ..
-    """
-
-    """
-    POST mailbox/<int:mailbox_pk>/{우체통 별 랜덤값}
-    """
-
-    @action(detail=True, methods=['post'], url_path='letter', name='create_letter')
-    def create_letter(self, request, pk=None):
-        serializer = self.get_serializer(date=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create_letter(serializer, pk)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-    def perform_create_letter(self, serializer, pk):
-        # mailbox 필드 값 추가하기
-        serializer.save(
-            mailbox=MailBox.objects.get(pk=pk)
-        )
