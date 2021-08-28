@@ -24,7 +24,7 @@ class MailBox(models.Model):
         return self.letters.count()  # using related_name
 
     def set_mailbox_link(self):
-        return 'https://poppymail.com/mailbox/' + self.id
+        return 'https://poppymail.com/mailbox/' + str(self.id)
 
     def check_mailbox_key(self, val):  # 사용자가 입력한 키 값이 올바른지 확인하는 메서드
         return self.key == val
