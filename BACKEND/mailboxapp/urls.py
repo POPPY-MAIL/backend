@@ -5,5 +5,5 @@ from mailboxapp.views import MailBoxViewSet
 # mailbox/<int:mailbox_pk>/secretkey
 
 router = routers.DefaultRouter()
-router.register(r'mailbox', MailBoxViewSet)
+router.register(r'mailbox', MailBoxViewSet, basename='mailbox')
 urlpatterns = router.urls
