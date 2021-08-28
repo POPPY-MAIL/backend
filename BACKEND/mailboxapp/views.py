@@ -26,8 +26,6 @@ def get_random_key():  # 우체통 별 랜덤 키 값 생성 메서드
 
 
 class MailBoxViewSet(viewsets.ModelViewSet):
-    # Authentication & Permission 추가 필요 -> 밑에 코드도 수정 필요 있을 듯
-
     def get_queryset(self):
         app_user = self.request.user.app_user
         return MailBox.objects.filter(user=app_user)
@@ -60,7 +58,8 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         response_mailbox_serializer = GetMailBoxSerializer(mailbox)
 
         headers = self.get_success_headers(response_mailbox_serializer.data)
-        return Response(response_mailbox_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        content = {'우체통 생성 완료'}
+        return Response(response_mailbox_serializer.data, content, status=status.HTTP_201_CREATED, headers=headers)
 
     def perform_create_mailbox(self, request, serializer):
         # user, link_title, open_date 값 추가하기
