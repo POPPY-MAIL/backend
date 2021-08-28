@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import LetterRequestView
 
-app_name = "accountapp"
+app_name = "letterapp"
 
 urlpatterns = [
-    path('login/kakao/', KakaoLoginView.as_view(), name="login"),
+    path('letter/<int:mailbox_pk>/', LetterRequestView.as_view(), name="letter_request"),
 ]
