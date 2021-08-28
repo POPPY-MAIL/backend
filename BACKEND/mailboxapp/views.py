@@ -71,7 +71,8 @@ class MailBoxViewSet(viewsets.ModelViewSet):
         random_key = get_random_key()
         mailbox.key = random_key
         mailbox.mailbox_link = mailbox.set_mailbox_link() + '/?key=' + random_key
-        return mailbox.save()
+        mailbox.save()
+        return mailbox
 
     """
     GET mailbox (개인의 모든 우체통 조회) - ModelViewSet 에 이미 정의되어 있음(수정 X) 
@@ -82,7 +83,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
     """
 
     @action(detail=True, methods=['get'], url_path='letters', name='get_letters')
-    def get_letters(self, pk=None):
+    def get_letters(self, request, pk=None):
         mailbox = MailBox.objects.get(pk=pk)
         queryset = mailbox.letters.all()  # 해당 우체통과 연관된 모든 편지 객체 반환
 
