@@ -3,7 +3,7 @@ from accountapp.models import AppUser
 
 
 class MailBox(models.Model):
-    id = models.BigIntegerField(primary_key=True, db_column="mailbox_id")
+    id = models.BigAutoField(primary_key=True, db_column="mailbox_id")
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="mailboxes")
     nickname = models.CharField(max_length=20)
     link_title = models.CharField(max_length=40)
@@ -24,7 +24,7 @@ class MailBox(models.Model):
         return self.letters.count()  # using related_name
 
     def set_mailbox_link(self):
-        return 'https://poppymail.com/mailbox/' + self.id
+        return 'https://poppymail.com/letter/' + str(self.id)
 
     def check_mailbox_key(self, val):  # 사용자가 입력한 키 값이 올바른지 확인하는 메서드
         return self.key == val
