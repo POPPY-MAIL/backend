@@ -4,7 +4,7 @@ from mailboxapp.models import MailBox
 
 
 class Letter(models.Model):
-    id = models.BigIntegerField(primary_key=True, db_column='letter_id')
+    id = models.BigAutoField(primary_key=True, db_column='letter_id')
     mailbox = models.ForeignKey(MailBox, on_delete=models.CASCADE, related_name='letters')
     content = models.TextField()
     sender = models.CharField(max_length=20)

@@ -3,7 +3,7 @@ from accountapp.models import AppUser
 
 
 class MailBox(models.Model):
-    id = models.BigIntegerField(primary_key=True, db_column="mailbox_id")
+    id = models.BigAutoField(primary_key=True, db_column="mailbox_id")
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="mailboxes")
     nickname = models.CharField(max_length=20)
     link_title = models.CharField(max_length=40)
