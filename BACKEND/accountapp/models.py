@@ -19,3 +19,6 @@ class AppUser(models.Model):
         db_table = 'app_user'
 
     # def number_of_letters_in_mailbox_opened_today(self):
+
+    def number_of_mailboxes(self):  # 우체통 개수 반환 메서드
+        return self.mailboxes.count()
