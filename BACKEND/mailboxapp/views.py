@@ -28,7 +28,9 @@ def get_random_key():  # 우체통 별 랜덤 키 값 생성 메서드
 class MailBoxViewSet(viewsets.ModelViewSet):
     # Authentication & Permission 추가 필요 -> 밑에 코드도 수정 필요 있을 듯
 
-    queryset = MailBox.objects.all()
+    def get_queryset(self):
+        app_user = self.request.user.app_user
+        return MailBox.objects.filter(user=app_user)
 
     # GenericAPIView클래스의 get_serializer_class() 메서드 오버라이딩 - 조건에 맞는 Serializer 반환
     def get_serializer_class(self):
@@ -98,7 +100,7 @@ class MailBoxViewSet(viewsets.ModelViewSet):
     DELETE mailbox/<int:mailbox_pk> - ModelViewSet 에 이미 정의되어 있음(수정 X)
     """
 
-    # 밑에 부분(get, post) 코드 작성하기 . .
+    # 밑에 부분(get, post) 코드 작성하기 . . & authentication과 permission 설정 해줘야 함
 
     """
     GET mailbox/<int:mailbox_pk>/{우체통 별 랜덤값} -> 요청 body로 랜덤값 넘겨받기 -> 이거 아닌거 같아.. url에서 뽑아야 할 듯 ..
