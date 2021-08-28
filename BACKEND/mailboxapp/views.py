@@ -1,7 +1,7 @@
 import random
 import string
 
-from datetime import date
+from datetime import date, timedelta
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
@@ -12,8 +12,8 @@ from letterapp.serializers import ListLetterSerializer, CreateLetterSerializer
 
 def get_random_open_date():  # 랜덤 우체통 공개 날짜 생성 메서드
     # 랜덤 날짜 조건 : 우체통 봉인 시점(우체통 생성 후 3일 뒤)부터 1주일 ~ 1달 후
-    mailbox_close_date = date.today() + 3
-    return mailbox_close_date + random.randint(7, 30)
+    mailbox_close_date = date.today() + timedelta(days=3)
+    return mailbox_close_date + timedelta(days=random.randint(7, 30))
 
 
 def get_random_key():  # 우체통 별 랜덤 키 값 생성 메서드
