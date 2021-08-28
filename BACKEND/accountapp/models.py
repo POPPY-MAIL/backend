@@ -6,7 +6,8 @@ class AppUser(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        primary_key=True
+        primary_key=True,
+        related_name='app_user'
     )  # user_id, related_name default : appuser
     name = models.CharField(max_length=20, null=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
@@ -18,3 +19,6 @@ class AppUser(models.Model):
         db_table = 'app_user'
 
     # def number_of_letters_in_mailbox_opened_today(self):
+
+    def number_of_mailboxes(self):  # 우체통 개수 반환 메서드
+        return self.mailboxes.count()
