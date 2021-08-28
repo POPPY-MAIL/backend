@@ -1,12 +1,21 @@
 import jwt
 import requests
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from BACKEND.settings.deploy import SECRET_KEY
+from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
 from accountapp.models import AppUser
+from rest_framework.response import Response
+from rest_framework import request, status
+from rest_framework.generics import UpdateAPIView, DestroyAPIView
+from rest_framework.permissions import AllowAny
+
+from rest_framework.views import APIView
+from .serializers import AddUserInfoSerializer
+from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -43,3 +52,92 @@ class KakaoLoginView(View):  # 카카오 로그인
                 'user_name': new_user_info.name,
                 'user_pk': new_user_info.id,
             }, status=200)
+
+
+class LoginView(APIView):  # 로그인
+    permission_classes = [AllowAny]
+
+    # 카카오톡에 사용자 정보 요청
+    def getUserFromKakao(self, request):
+        access_token = request.headers["Authorization"]
+        headers = ({'Authorization': f"Bearer {access_token}"})
+        url = "https://kapi.kakao.com/v2/user/me"
+        response = requests.request("POST", url, headers=headers)  # POST 요청하여 회원 정보 response에 저장
+        return response.json()
+
+    # DB에 있는지 판별
+    def checkUserInDB(self, kakao_user):
+        try:
+            user = User.objects.get(username=kakao_user['id'])
+            return user, True
+        except User.DoesNotExist:  # 신규 회원일 때
+            user = User.objects.create_user(
+                kakao_user['id'],
+                'test@gmail.com',
+                'poppymail'
+            )
+            return user, False
+
+    # 토큰 생성 (simple-jwt)
+    def createJWT(self, user):
+        url = 'http://127.0.0.1:8000/api/token/'  # 배포 후 url 변경
+        payload = {'username': user.username, 'password': 'poppymail'}
+        return requests.post(url, json=payload)
+
+    def post(self, request):
+        kakao_user = self.getUserFromKakao(request)
+        user, check = self.checkUserInDB(kakao_user)
+
+        if check:
+            is_new = 'false'
+        else:
+            is_new = 'true'
+
+        response = self.createJWT(user)
+
+        return Response(
+            data={
+                'access': response.json()['access'],
+                'refresh': response.json()['refresh'],
+                'is_new': is_new,
+                'user_id': user.id
+            },  # serializer.data와 동일한 형태
+            status=status.HTTP_200_OK
+        )
+
+
+class AddUserInfoView(UpdateAPIView):  # 사용자 정보 추가 입력(업데이트)
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+
+    queryset = AppUser.objects.all()
+    serializer_class = AddUserInfoSerializer
+
+    def patch(self, request, *args, **kwargs):
+        if AppUser.objects.filter(pk=request.user.id).exists() is False:  # 해당 id 값의 AppUser 객체가 없는 경우
+            AppUser.objects.create(user=User.objects.get(pk=request.user.id))
+
+        return self.partial_update(request, *args, **kwargs)
+
+
+class LogoutView(APIView):  # 로그아웃
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+
+    def post(self, request):
+        tokens = OutstandingToken.objects.filter(user_id=request.user.id)
+        for token in tokens:
+            t, _ = BlacklistedToken.objects.get_or_create(token=token)
+
+        content = {'로그아웃 성공'}
+        return Response(content, status=status.HTTP_205_RESET_CONTENT)
+
+
+class SignoutView(DestroyAPIView):  # 탈퇴
+    # auth_user 삭제하면 -> AppUser, OutstandingToken, BlacklistedToken도 삭제됨 (서로 cascade로 설정되어 있음)
+    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+    queryset = User.objects.all()
+
+    def destroy(self, request, *args, **kwargs):
+        instance = User.objects.get(pk=request.user.id)
+        self.perform_destroy(instance)
+        content = {'탈퇴 완료'}
+        return Response(content, status=status.HTTP_204_NO_CONTENT)

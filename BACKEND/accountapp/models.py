@@ -1,16 +1,20 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django.utils import timezone
 
 
 class AppUser(models.Model):
-    id = models.BigIntegerField(primary_key=True, db_column='user_id')
-    name = models.CharField(max_length=20)
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        primary_key=True
+    )  # user_id, related_name default : appuser
+    name = models.CharField(max_length=20, null=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
     gender = models.CharField(max_length=20, null=True, blank=True)
-    birthdate = models.DateTimeField(null=True, blank=True)
-    date_created = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    last_updated = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    email = models.EmailField(unique=True, null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'user'
+        db_table = 'app_user'
+
+    # def number_of_letters_in_mailbox_opened_today(self):
