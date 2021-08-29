@@ -142,3 +142,17 @@ class SignoutView(DestroyAPIView):  # 탈퇴
         self.perform_destroy(instance)
         content = {'탈퇴 완료'}
         return Response(content, status=status.HTTP_204_NO_CONTENT)
+
+
+class KakaoLoginTestView(APIView):
+    # 카카오톡에 사용자 정보 요청
+    def post(self, request):
+        access_token = request.headers["Authorization"]
+        headers = ({'Authorization': f"Bearer {access_token}"})
+        url = "https://kapi.kakao.com/v2/user/me"
+        response = requests.request("POST", url, headers=headers)  # POST 요청하여 회원 정보 response에 저장
+        content = {'카카오 사용자 정보 요청 성공'}
+        return Response(
+            content,
+            status=status.HTTP_200_OK
+        )
