@@ -145,6 +145,7 @@ class SignoutView(DestroyAPIView):  # 탈퇴
 
 
 class KakaoLoginTestView(APIView):
+    permission_classes = [AllowAny]
     # 카카오톡에 사용자 정보 요청
     def post(self, request):
         access_token = request.headers["Authorization"]
