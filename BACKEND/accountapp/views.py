@@ -6,7 +6,9 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from BACKEND.settings.local import SECRET_KEY  # 로컬 : local
+# 로컬에서 돌릴 때는 SECRET_KEY를 local.py에서 가져오도록 설정하고,
+# 배포환경에서 돌릴 때는 SECRET_KEY를 deploy.py에서 가져오도록 설정한다.
+from BACKEND.settings.deploy import SECRET_KEY
 from accountapp.models import AppUser
 from rest_framework.response import Response
 from rest_framework import request, status
