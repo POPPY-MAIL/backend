@@ -81,7 +81,7 @@ class LoginView(APIView):  # 로그인
 
     # 토큰 생성 (simple-jwt)
     def createJWT(self, user):
-        url = 'http://127.0.0.1:8000/api/token/'  # 배포 후 url 변경
+        url = 'http://poppymail.shop/api/token/'  # 배포 후 url 변경
         payload = {'username': user.username, 'password': 'poppymail'}
         return requests.post(url, json=payload)
 
