@@ -7,14 +7,18 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 # 로컬에서 돌릴 때, 아래 from BACKEND.settings.local import SECRET_KEY로 수정!!!!
-from BACKEND.settings.deploy import SECRET_KEY
+from BACKEND.settings.local import SECRET_KEY
 from accountapp.models import AppUser
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework import request, status
 from rest_framework.generics import UpdateAPIView, DestroyAPIView
 from rest_framework.permissions import AllowAny
 
 from rest_framework.views import APIView
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
 from .serializers import AddUserInfoSerializer
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 
@@ -79,11 +83,16 @@ class LoginView(APIView):  # 로그인
             )
             return user, False
 
-    # 토큰 생성 (simple-jwt)
+    # simple-JWT을 사용해 토큰 생성 해주는 역할만 수행하면 됨
     def createJWT(self, user):
-        url = 'https://poppymail.shop/api/token/'  # 배포 후 url 변경
-        payload = {'username': user.username, 'password': 'poppymail'}
-        return requests.post(url, json=payload)
+        serializer = TokenObtainPairSerializer(data={'username': user.username, 'password': 'poppymail'})
+
+        try:
+            serializer.is_valid(raise_exception=True)
+        except TokenError as e:
+            raise InvalidToken(e.args[0])
+
+        return serializer.validated_data
 
     def post(self, request):
         kakao_user = self.getUserFromKakao(request)
@@ -98,8 +107,8 @@ class LoginView(APIView):  # 로그인
 
         return Response(
             data={
-                'access': response.json()['access'],
-                'refresh': response.json()['refresh'],
+                'access': response['access'],
+                'refresh': response['refresh'],
                 'is_new': is_new,
                 'user_id': user.id
             },  # serializer.data와 동일한 형태
@@ -146,6 +155,7 @@ class SignoutView(DestroyAPIView):  # 탈퇴
 
 class KakaoLoginTestView(APIView):
     permission_classes = [AllowAny]
+
     # 카카오톡에 사용자 정보 요청
     def post(self, request):
         access_token = request.headers["Authorization"]
