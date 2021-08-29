@@ -3,14 +3,14 @@ services:
   ngnix:
     image: nginx:1.19.5
     volumes:
-      - /home/poppy_backend/nginx.conf:/etc/nginx/nginx.conf
+      - /home/nginx_setting/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - network
     ports:
       - 80:80
 
   django_container_gunicorn:
-    image: django_test_image:5
+    image: django_test_image:1
     networks:
       - network
     secrets:
