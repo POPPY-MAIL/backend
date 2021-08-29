@@ -6,8 +6,10 @@
 # 가상환경
 venv/
 .idea/
+
 # secret key 보호
 .env/
+aws_key.pem/
 
 ### Django ###
 *.log
