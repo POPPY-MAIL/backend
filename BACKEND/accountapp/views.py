@@ -70,8 +70,10 @@ class AddUserInfoView(UpdateAPIView):
     serializer_class = AddUserInfoSerializer
 
 
-class LogoutView(APIView):  # 로그아웃
-    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+class LogoutView(APIView):
+    """
+    인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+    """
     def post(self, request):
         tokens = OutstandingToken.objects.filter(user_id=request.user.id)
         for token in tokens:
