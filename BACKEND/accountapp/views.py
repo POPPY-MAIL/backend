@@ -61,8 +61,11 @@ class LoginView(APIView):
         )
 
 
-class AddUserInfoView(UpdateAPIView):  # 사용자 정보 추가 입력(업데이트)
-    # 인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정)
+class AddUserInfoView(UpdateAPIView):
+    """
+    로그인 후 사용자 정보 추가 입력(업데이트)
+    인증 & 허가 - JWTAuthentication, IsAuthenticated (기본 설정) 사용
+    """
     queryset = AppUser.objects.all()
     serializer_class = AddUserInfoSerializer
 
